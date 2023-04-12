@@ -1,0 +1,46 @@
+{
+  "name": "vitejs-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env env-cmd -f .env.local vite",
+    "start-dev": "cross-env env-cmd -f .env.development vite",
+    "start-prod": "cross-env env-cmd -f .env.production vite",
+    "build": "cross-env env-cmd -f .env.local tsc && vite build",
+    "build-dev": "cross-env env-cmd -f .env.development tsc && vite build",
+    "build-prod": "cross-env env-cmd -f .env.production tsc && vite build",
+    "serve": "vite preview",
+    "preview": "vite preview",
+    "docker:build": "docker build -t vitejs-react-app-image .",
+    "docker:run": "docker run --name vitejs-react-app-image-container -p 80:80 -d vitejs-react-app-image"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "fs": "^0.0.1-security",
+    "i18next": "^22.4.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "husky": "^4.3.8",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
+}
