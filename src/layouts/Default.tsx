@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Header } from 'components/shared';
+import { Header } from 'sharedComponents';
 
 interface Props {
   children: ReactElement;

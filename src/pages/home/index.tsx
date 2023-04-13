@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from 'components/home';
-import { InputSelect } from 'components/shared';
+import { Header } from 'pages/home/components';
+import { InputSelect } from 'sharedComponents';
 
 const Home = () => {
   return (

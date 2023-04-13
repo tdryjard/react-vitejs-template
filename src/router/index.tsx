@@ -1,20 +1,26 @@
 import React, { ReactElement } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // IMPORTATION DE PAGE
 import { Home } from 'pages';
-import PageWrapper from 'pages/Wrapper';
 
 import routes from 'router/routes';
+
+import DefaultLayout from 'layouts/Default';
 
 function Router(): ReactElement {
   return (
     <BrowserRouter>
-      <PageWrapper>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </PageWrapper>
+      <Routes>
+        <Route
+          path={routes.home.path}
+          element={
+            <DefaultLayout>
+              <Home />
+            </DefaultLayout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
